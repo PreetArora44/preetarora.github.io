@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preet Arora | Accounting &amp; Taxation Portfolio</title>
+  <meta name="description" content="Portfolio of Preet Arora, accounting student at Rutgers Business School focused on taxation.">
+
+  <!--
+    FILES THIS PAGE EXPECTS IN THE SAME REPOSITORY (names must match exactly, all lowercase):
+      headshot.jpg
+      resume.pdf
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --scarlet: #cc0033;
+      --scarlet-dark: #a3002a;
+      --ink: #1c1c1e;
+      --muted: #5c5c63;
+      --line: #e6e2dd;
+      --bg: #faf8f5;
+      --card: #ffffff;
+      --chip: #f6eef0;
+      --radius: 14px;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+    }
+
+    a { color: var(--scarlet); text-decoration: none; }
+    a:hover { color: var(--scarlet-dark); text-decoration: underline; }
+    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--scarlet); outline-offset: 3px; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--ink);
+    }
+    .brand span { color: var(--scarlet); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--scarlet); text-decoration: none; }
+
+    /* ---------- Hero / Personal statement ---------- */
+    .hero { padding: 88px 0 72px; }
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--scarlet);
+      margin-bottom: 16px;
+    }
+    .hero h1 { font-size: 3.2rem; margin-bottom: 20px; }
+    .statement {
+      font-size: 1.3rem;
+      color: var(--ink);
+      max-width: 36ch;
+      margin-bottom: 32px;
+    }
+    .statement strong { color: var(--scarlet); font-weight: 600; }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--scarlet);
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-primary { background: var(--scarlet); color: #fff; }
+    .btn-primary:hover { background: var(--scarlet-dark); border-color: var(--scarlet-dark); color: #fff; text-decoration: none; }
+    .btn-ghost { background: transparent; color: var(--scarlet); }
+    .btn-ghost:hover { background: var(--scarlet); color: #fff; text-decoration: none; }
+
+    .photo-frame { justify-self: center; position: relative; }
+    .photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: 14px -14px -14px 14px;
+      border: 2px solid var(--scarlet);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .headshot, .initials {
+      position: relative;
+      z-index: 1;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+      border: 6px solid #fff;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+    }
+    .initials {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--scarlet);
+      background: var(--chip);
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 72px 0; }
+    section.alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-head { margin-bottom: 36px; }
+    .section-head h2 { font-size: 2.1rem; margin-bottom: 8px; }
+    .section-head p { color: var(--muted); max-width: 60ch; }
+
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .skill-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .skill-card h3::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--scarlet);
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .chips li {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    /* ---------- Projects ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .project {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--scarlet);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .project:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07); }
+    .project .tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .project h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .project p { color: var(--muted); margin-bottom: 16px; flex-grow: 1; }
+    .project .skills-used { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; list-style: none; }
+    .project .skills-used li {
+      font-size: 0.78rem;
+      background: var(--chip);
+      color: var(--scarlet-dark);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    .project .skills-used:last-child { margin-bottom: 0; }
+    .status {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px dashed var(--line);
+      padding: 4px 12px;
+      border-radius: 999px;
+      align-self: flex-start;
+    }
+
+    /* ---------- Experience & Education ---------- */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .entry {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .entry .label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--scarlet);
+      margin-bottom: 10px;
+    }
+    .entry h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .entry .meta { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; }
+    .entry ul { padding-left: 18px; color: var(--ink); }
+    .entry li { margin-bottom: 6px; }
+    .school-divider { border-top: 1px solid var(--line); margin: 20px 0; }
+    .entry .meta:last-child { margin-bottom: 0; }
+
+    /* ---------- Contact ---------- */
+    .contact { text-align: center; }
+    .contact .section-head p { margin: 0 auto; }
+    .contact .btn-row { justify-content: center; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 820px) {
+      .hero { padding: 56px 0 48px; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .hero .photo-frame { order: -1; }
+      .statement { margin-left: auto; margin-right: auto; }
+      .btn-row { justify-content: center; }
+      .hero h1 { font-size: 2.5rem; }
+      .headshot, .initials { width: 200px; height: 200px; }
+      .skills-grid, .projects-grid, .two-col { grid-template-columns: 1fr; }
+      .nav-links { gap: 16px; }
+      .nav-links li.hide-sm { display: none; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="#top">Preet <span>Arora</span></a>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li class="hide-sm"><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PERSONAL STATEMENT ===== -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Accounting &amp; Taxation &middot; Rutgers Business School</span>
+        <h1>Preet Arora</h1>
+        <p class="statement">
+          I'm an accounting student at Rutgers Business School focused on <strong>taxation</strong>, and since 2022 I've served federal and New Jersey tax clients as a manager at Mohit Tax Consultant in Edison, NJ.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View My Resume</a>
+          <a class="btn btn-ghost" href="#projects">See My Projects</a>
+        </div>
+      </div>
+      <div class="photo-frame">
+        <img class="headshot" src="headshot.jpg" alt="Headshot of Preet Arora"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="initials" aria-hidden="true">PA</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="alt" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>What I bring to a tax, audit, or advisory team, built through coursework and hands-on client work.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Tax &amp; Accounting</h3>
+          <ul class="chips">
+            <li>Tax Return Preparation</li>
+            <li>Individual Income Tax</li>
+            <li>Gross Income &amp; Exclusions</li>
+            <li>Individual Deductions</li>
+            <li>Federal &amp; NJ Tax Client Support</li>
+            <li>Financial Reporting (GAAP)</li>
+            <li>10-K Analysis</li>
+            <li>Auditing Fundamentals</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Software &amp; Tools</h3>
+          <ul class="chips">
+            <li>Microsoft Excel</li>
+            <li>Microsoft 365</li>
+            <li>TaxAct</li>
+            <li>Google Workspace</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Client &amp; Professional</h3>
+          <ul class="chips">
+            <li>Client Correspondence</li>
+            <li>Client Intake &amp; File Preparation</li>
+            <li>Employee Onboarding</li>
+            <li>Cost-Volume-Profit Analysis</li>
+            <li>Team Collaboration</li>
+            <li>English &amp; Hindi (Fluent)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Selected work from Rutgers Business School.</p>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project">
+          <div class="tag">Management &middot; Semester Team Project</div>
+          <h3>Knights' Fuel: Business Case Project</h3>
+          <p>Built a complete business plan for Knights' Fuel, a campus meal prep startup. Our team ran a cost-volume-profit (break-even) analysis, wrote the vision, mission, and SMART objectives, mapped operations with a SIPOC diagram, designed a Balanced Scorecard, assessed stakeholders and CSR, and closed with an acquisition recommendation.</p>
+          <ul class="skills-used">
+            <li>CVP Analysis</li><li>SIPOC</li><li>Balanced Scorecard</li><li>Strategy</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="tag">Financial Analysis</div>
+          <h3>Dover Corporation (NYSE: DOV) 10-K Review</h3>
+          <p>Worked through Dover Corporation's 2025 Form 10-K to verify a financial analysis against the source filing, focusing on revenue recognition disclosures, revenue by geographic region, and the company's key risk factors.</p>
+          <ul class="skills-used">
+            <li>10-K Analysis</li><li>Revenue Recognition</li><li>Risk Assessment</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="tag">Accounting Information Systems</div>
+          <h3>Business Process &amp; Database Design</h3>
+          <p>Modeled business processes using BPMN and REA-based UML class diagrams, designed normalized relational databases with primary and foreign keys, and wrote SQL queries to pull accounting data. Applied COSO and SOC report concepts to evaluate internal controls.</p>
+          <ul class="skills-used">
+            <li>SQL</li><li>REA / UML</li><li>BPMN</li><li>Internal Controls</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="tag">Semester Team Consulting Project</div>
+          <h3>Organizational Output Problem Study</h3>
+          <p>A semester-long team project studying a small tax preparation firm in Edison, NJ. I conducted the initial interview with a senior manager, and our team is identifying an internal, people-side output problem and developing recommendations to address it.</p>
+          <ul class="skills-used">
+            <li>Interviewing</li><li>Root Cause Analysis</li><li>Consulting</li>
+          </ul>
+          <span class="status">In progress &middot; Fall 2026</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE & EDUCATION ===== -->
+  <section class="alt" id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience &amp; Education</h2>
+      </div>
+      <div class="two-col">
+        <div class="entry">
+          <div class="label">Experience</div>
+          <h3>Manager</h3>
+          <div class="meta">Mohit Tax Consultant &middot; Edison, NJ &middot; 2022 to Present</div>
+          <ul>
+            <li>Prepare and file federal and New Jersey tax returns for clients</li>
+            <li>Grew clientele by <strong>250+ clients</strong> and raised profit per client by <strong>25%</strong></li>
+            <li>Handle client correspondence and prepare client files and intake questionnaires</li>
+            <li>Onboard and train new employees</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="label">Education</div>
+          <h3>Rutgers Business School</h3>
+          <div class="meta">B.S. in Accounting, Taxation Focus &middot; Expected Fall 2027</div>
+          <ul>
+            <li><strong>Relevant coursework:</strong> Individual Taxation, Auditing, Intermediate Accounting, Accounting Information Systems, Supply Chain Management, Introduction to Management</li>
+          </ul>
+          <div class="school-divider"></div>
+          <h3>Middlesex College</h3>
+          <div class="meta">Associate Degree in Business Administration &middot; Edison, NJ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Let's Connect</h2>
+        <p>I'm open to internships and opportunities in tax, audit, and advisory. The best way to reach me is by email.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:preet44arora@gmail.com">preet44arora@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/preet44arora/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Preet Arora &middot; Hosted on GitHub Pages
+  </footer>
+
+
+</body>
+</html>
